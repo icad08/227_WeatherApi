@@ -44,13 +44,24 @@
                     $('#kelembapan').text(data.current.humidity);
                     $('#negara').text(data.location.country);
                     $('#provinsi').text(data.location.region);
-                    $('#kecamatan').text(data.location.name);                     $('#longitude').text(data.location.lon);
+                    $('#kecamatan').text(data.location.name);                     
+                    $('#longitude').text(data.location.lon);
                     $('#latitude').text(data.location.lat);
                 },
 
             fail : function(error){
                 console.log(error);}
            })
+
+            $('#tombolSet').on('click', function() {
+            let lokasiInput = $('#inputLokasi').val(); 
+            if (lokasiInput) { 
+                ambilCuaca(lokasiInput);
+            } else {
+                alert("Silakan masukkan nama lokasi.");
+            }
+        });
+
 
 
         </script>
