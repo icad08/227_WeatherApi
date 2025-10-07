@@ -39,14 +39,14 @@
             url : urlapi,
             method : "GET",
             success : function(data){
-                console.log(data);
-                const v = document.getElementById("tampilan"); 
-                const t = document.getElementById("lokasi");  
-                let suhu = data.current.temp_c;
-                let lokasi = data.location.name;   
-                v.innerHTML = suhu;
-                t.innerHTML = lokasi; 
-            },
+                    $('#cuaca').text(data.current.condition.text);
+                    $('#suhu').text(data.current.temp_c);
+                    $('#kelembapan').text(data.current.humidity);
+                    $('#negara').text(data.location.country);
+                    $('#provinsi').text(data.location.region);
+                    $('#kecamatan').text(data.location.name);                     $('#longitude').text(data.location.lon);
+                    $('#latitude').text(data.location.lat);
+                },
 
             fail : function(error){
                 console.log(error);}
