@@ -33,7 +33,11 @@
         <div id="tampilan"></div>
 
         <script>
-            const urlapi ="http://api.weatherapi.com/v1/current.json?key=af0a72873b9a4b4188220659250710&q=Yogyakarta&aqi=no";
+        function ambilCuaca(lokasi) {
+            const apiKey = "af0a72873b9a4b4188220659250710";
+            const urlApi = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lokasi}&aqi=no`;
+
+            const urlapi ="http://api.weatherapi.com/v1/current.json?key=af0a72873b9a4b4188220659250710&q=jakarta&aqi=no";
 
            $.ajax({
             url : urlapi,
@@ -48,11 +52,13 @@
                     $('#longitude').text(data.location.lon);
                     $('#latitude').text(data.location.lat);
                 },
+            
 
             fail : function(error){
                 console.log(error);}
-           })
-
+           });
+        
+        }       
             $('#tombolSet').on('click', function() {
             let lokasiInput = $('#inputLokasi').val(); 
             if (lokasiInput) { 
